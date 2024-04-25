@@ -8,8 +8,12 @@ export const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    addTodo: (state) => {},
-    removeTodo: (state) => {},
+    addTodo: (state, action) => {
+      state.todos.push(action.payload);
+    },
+    removeTodo: (state, action) => {
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+    },
   },
 });
 
